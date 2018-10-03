@@ -5,7 +5,13 @@
 #include <fstream.h>
 
 #define DATA 128
-
+void delay(int delay)
+{
+    int now=time(NULL);
+    int later=now+delay;
+    while(now<=later)
+        now=time(NULL);
+}
 class app
 {
 	protected:
@@ -49,16 +55,17 @@ void menu :: io()
 		{
 			if (strcmp(options[i], "") == 0)
 			{
-				break;
+				if(strcmp(options[i+1],"a")==0)
+					break;
 			}
 			cout << i+1 << ". " << options[i] << '\n';
 			max_option = i+1;
 		}
-		// if (strcmp(title, "Welcome to Delhi Metro") != 0)
-		// {
+		 if (strcmp(title, "Welcome to Delhi Metro") != 0)
+		 {
 			cout << "\n0. Back\n";
 			min_option = 0;
-		// }
+		 }
 		selected_option = ((int)getch()) - ((int)'0');
 		if ((selected_option >= min_option) && (selected_option <= max_option))
 		{
@@ -121,7 +128,7 @@ unsigned short int rider :: uid_exists(char a[DATA])
 	}
 }
 
-unsigned short int rider :: uid_passwd_match(char a[DATA], char b[DATA])
+unsigned int rider :: uid_passwd_match(char a[DATA], char b[DATA])
 {
 	ifstream riders_file("RAIL/RIDERS.DAT", ios::in | ios::binary);
 	rider read_rider;
@@ -176,6 +183,8 @@ unsigned short int rider :: buy_pass()
 		}
 	}
 }
+
+
 
 unsigned short int rider :: validate_pass()
 {
@@ -277,5 +286,6 @@ void main()
 				} while(admin_menu.get_selected_option());
 			break;
 		}
+		delay(100);
 	} while(welcome_menu.get_selected_option());
 }
