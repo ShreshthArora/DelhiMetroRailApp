@@ -61,7 +61,7 @@ void menu :: io()
 			cout << i+1 << ". " << options[i] << '\n';
 			max_option = i+1;
 		}
-		 if (strcmp(title, "Welcome to Delhi Metro") != 0)
+		 if (strcmp(title, "hey !Welcome to Delhi Metro") != 0)
 		 {
 			cout << "\n0. Back\n";
 			min_option = 0;
