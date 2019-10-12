@@ -1,6 +1,10 @@
 version: 2.1
   jobs:
     build:
+      branches:
+        only:
+          - dev-12-10-2019
+          - master
       steps:
         - checkout
         - run: make clean
