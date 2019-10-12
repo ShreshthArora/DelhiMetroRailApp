@@ -1,0 +1,7 @@
+version: 2.1
+  jobs:
+    build:
+      steps:
+        - checkout
+        - run: make clean
+        - run: make
