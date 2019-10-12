@@ -1,12 +1,12 @@
-version: 2.1
+version: 2.0
 jobs:
   build:
-    docker:
-      - image: "debian:buster"
     branches:
       only:
         - dev-12-10-2019
         - master
+    docker:
+      - image: "debian:buster"
     steps:
       - checkout
       - run:
