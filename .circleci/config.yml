@@ -1,4 +1,5 @@
 version: 2.1
+<<<<<<< HEAD
 jobs:
   build:
     branches:
@@ -9,3 +10,15 @@ jobs:
       - checkout
       - run: make clean
       - run: make
+=======
+  jobs:
+    build:
+      branches:
+        only:
+          - dev-12-10-2019
+          - master
+      steps:
+        - checkout
+        - run: make clean
+        - run: make
+>>>>>>> ab4375e0ceb789603ae37f413635900b098e0fc3
