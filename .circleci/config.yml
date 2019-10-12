@@ -1,7 +1,11 @@
 version: 2.1
-  jobs:
-    build:
-      steps:
-        - checkout
-        - run: make clean
-        - run: make
+jobs:
+  build:
+    branches:
+      only:
+        - dev-12-10-2019
+        - master
+    steps:
+      - checkout
+      - run: make clean
+      - run: make
